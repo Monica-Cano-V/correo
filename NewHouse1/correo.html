@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enviar correo</title>
+    <link rel="preload" href="css/css.css" as="style">
+    <link href="css/css.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Dudas o sujerencias</h2>
+    <form class="formulario" id="emailForm">
+        <h3>El mensaje sera enviado desde el correo que se encuentre avierto en el dispositivo</h3>
+        <label for="subject">Asunto:</label>
+        <input type="text" id="subject" name="subject" required><br>
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+        <button type="submit">Enviar correo</button>
+    </form>
+    <script>
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let to = "monicacanoverduzco@gmail.com";
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
+
+            window.location.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + to + "&su=" + subject + "&body=" + message;
+        });
+    </script>
+</body>
+</html>
